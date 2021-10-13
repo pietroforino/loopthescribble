@@ -35,7 +35,7 @@
       <button class="buttonDue" onclick="openAbout()">
         <span>About</span>
       </button>
-        <div class="ml17" style="margin-top:100px;">Create infinite drawings and collaborate with others!</div>
+        <div class="ml17" style="margin-top:100px;line-height:1.4">Create infinite drawings and collaborate with others!</div>
 
     </div>
 
