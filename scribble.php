@@ -2,17 +2,18 @@
 <html>
 
   <head>
-    <title>  scribbleLoop | scribble</title>
+    <title>ScribbleLoop | scribble</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
+    <link rel="stylesheet" href="/style.css">
+
     <script language="javascript" type="text/javascript" src="addons/p5.min.js"></script>
     <script language="javascript" type="text/javascript" src="addons/p5.dom.min.js"></script>
     <script language="javascript" type="text/javascript" src="addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" href="/style.css">
     <script language="javascript" type="text/javascript" src="scribble.js"></script>
     <style media="screen">
       body {
@@ -29,12 +30,17 @@
     $imagesDir = 'newSketches/';
     $images = glob($imagesDir . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
     $randomImage = $images[array_rand($images)];
-
   ?>
 
   <script type="text/javascript">
 
     phpImage = <?php echo json_encode($randomImage); ?>;
+
+    $.getJSON('https://ipapi.co/json/', function(data) {
+    console.log(JSON.stringify(data.country_name, null, 2));
+    });
+
+
 
   </script>
   <!-- end php -->
@@ -46,15 +52,15 @@
         <img src="" id="newimg"/></div>
     </div>
     <div id="controller">
-      <img src="assets/home.png" id="homeButton"  type="button" onclick="window.open('index.php', '_top')" ontouchstart="window.open('index.php', '_top')"/>
-      <img src="assets/loop.png" id="saveLoop" onclick="salvaLoop()" ontouchstart="salvaLoop()"/>
-      <img src="assets/erase.png" id="eraseButton" onclick="eraseLine()" ontouchstart="eraseLine()"/>
+      <img src="assets/home.svg" id="homeButton"  type="button" onclick="window.open('index.php', '_top')" ontouchstart="window.open('index.php', '_top')" style="cursor:pointer"/>
+      <img src="assets/loop.svg" id="saveLoop" onclick="salvaLoop()" ontouchstart="salvaLoop()" style="cursor:pointer"/>
+      <img src="assets/erase.svg" id="eraseButton" onclick="eraseLine()" ontouchstart="eraseLine()" style="cursor:pointer"/>
     </div>
 
     <div id="modal">
       <div id="popup">
           <p id="testo">Great Job!</br>Your artwork is ready to be sent to the Loop.</p>
-        <span id="closePopup" onclick="chiudiPopUp()" ontouchstart="chiudiPopUp()">x</span>
+        <span id="closePopup" onclick="chiudiPopUp()" ontouchstart="chiudiPopUp()">&#10005;</span>
 
         <a href="#" id="galleryLink">
           <div id="buttonGallery"  onclick="galleria()" ontouchstart="galleria()">Save in the Loop</div>

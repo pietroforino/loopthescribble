@@ -12,16 +12,21 @@
     <script language="javascript" type="text/javascript" src="addons/p5.min.js"></script>
     <script language="javascript" type="text/javascript" src="addons/p5.dom.min.js"></script>
     <script language="javascript" type="text/javascript" src="addons/p5.sound.min.js"></script>
-
-
   </head>
 
-  <body>
-    <img src="assets/home.png" id="homeButton"  type="button" onclick="window.open('index.php', '_top')"/>
+  <style media="screen">
+    body {
+      background-image: none;
+    }
+  </style>
 
-    <div style="text-align: center; color: #00ffff">
+  <body>
+    <img src="assets/home.svg" id="homeButton"  type="button" onclick="window.open('index.php', '_top')" style="cursor:pointer"/>
+
+    <div style="text-align: center; margin-top: 25px;">
       <h1>Scribble</br>Gallery</h1>
     </div>
+
     <?php
 
     function beliefmedia_grid_gallery($dir = 'newSketches/', $columns = '3', $url = false, $width = '200') {
@@ -44,9 +49,9 @@
 
         .bm-grid-item-' . $transient . ' {
           display: inline-block;
-          background: #ff00ff;
-          margin: 0 0 10px;
-          padding: 3px 3px 0px 3px;
+          background: #000000;
+          margin: 0 0 10px 0;
+          padding: 1px 1px 0px 1px;
         }
 
         .bm-hr-grid-' . $transient . ' {
